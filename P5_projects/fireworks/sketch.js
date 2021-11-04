@@ -16,7 +16,7 @@ function add_point_list(x = Math.floor(Math.random()*1000),y = 600, x_spd = 0, y
 
 function add_particle_list(element)
 {
-  let color_list = [color(255,128,49),color(255,100,50),color(200,100,0)]
+  let color_list = [color(255,128,49),color(255,100,50),color(200,100,0),color(255,100,0),color(155,55,0)]
 
 
   for(let num_particles = Math.floor(Math.random()*100)+20; num_particles>0; num_particles--)
@@ -61,7 +61,7 @@ function dacay_particles()
 {
   new_list = []
   particle_list.forEach(element => {
-    if(element['y']>0)
+    if(element['y']<600)
     {
       new_list.push(element)
     }   
