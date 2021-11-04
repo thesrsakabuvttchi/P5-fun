@@ -19,7 +19,7 @@ function add_particle_list(element)
   let color_list = [color(255,128,49),color(255,100,50),color(200,100,0),color(255,100,0),color(155,55,0)]
 
 
-  for(let num_particles = Math.floor(Math.random()*100)+20; num_particles>0; num_particles--)
+  for(let num_particles = Math.floor(Math.random()*500)+50; num_particles>0; num_particles--)
   {
     let velocity_vector = Math.random()*8
     let angle = Math.random()*12.56
