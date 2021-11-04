@@ -91,7 +91,7 @@ function draw() {
   });
 
   particle_list.forEach(element => {
-    redraw_point(element)    
+    redraw_point(element,0.08)    
   });
 
   add_point_at_random()
