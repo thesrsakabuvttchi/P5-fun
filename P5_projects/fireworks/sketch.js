@@ -45,7 +45,7 @@ function explode_points()
 {
   new_list = []
   point_list.forEach(element => {
-    if(element['y_spd']>0)
+    if(element['y']>0)
     {
       new_list.push(element)
     }   
