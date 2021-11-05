@@ -70,9 +70,34 @@ function heart_explosion(element)
   }
 }
 
+function star_explosion(element)
+{
+  let color_list = [color(255,128,49),color(255,100,50),color(200,100,0),color(255,100,0),color(155,55,0)]
+
+
+  for(let num_particles = Math.floor(Math.random()*500)+50; num_particles>0; num_particles--)
+  {
+    let velocity_vector = Math.random()*6
+    let angle = Math.random()*Math.PI/64 - Math.PI/128 + 4*Math.floor(Math.random()*16)*(Math.PI/32)  
+
+    particle_list.push({
+      'x': element['x'],
+      'y': element['y'],
+      'x_spd':element['x_spd']+velocity_vector*Math.sin(angle),
+      'y_spd':element['y_spd']+velocity_vector*Math.cos(angle),
+      'color':color_list[Math.floor(Math.random()*color_list.length)], 
+      'weight' : 2+Math.floor(Math.random()*4)
+    })
+  }
+}
+
 function add_particle_list(element)
 {
-  heart_explosion(element)
+  let rnd = Math.random()
+  if(rnd<0.5)
+    circular_explosion(element)
+  else
+    star_explosion(element)
 }
 
 function add_point_at_random(chance = 0.01)
