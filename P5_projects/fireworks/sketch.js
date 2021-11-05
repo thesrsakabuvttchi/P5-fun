@@ -75,7 +75,7 @@ function add_particle_list(element)
   heart_explosion(element)
 }
 
-function add_point_at_random(chance = 0.02)
+function add_point_at_random(chance = 0.01)
 {
   if(Math.floor(Math.random()*(1/chance))==Math.floor(0.5/chance))
     add_point_list(Math.floor(Math.random()*1000),600,0,Math.floor(Math.random()*5)+5)
