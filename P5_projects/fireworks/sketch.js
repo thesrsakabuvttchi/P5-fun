@@ -14,7 +14,7 @@ function add_point_list(x = Math.floor(Math.random()*1000),y = 600, x_spd = 0, y
   })
 }
 
-function add_particle_list(element)
+function circular_explosion(element)
 {
   let color_list = [color(255,128,49),color(255,100,50),color(200,100,0),color(255,100,0),color(155,55,0)]
 
@@ -30,7 +30,42 @@ function add_particle_list(element)
       'x_spd':element['x_spd']+velocity_vector*Math.sin(angle),
       'y_spd':element['y_spd']+velocity_vector*Math.cos(angle),
       'color':color_list[Math.floor(Math.random()*color_list.length)], 
-      'weight' : 3
+      'weight' : 1+Math.floor(Math.random()*4)
+    })
+  }
+}
+
+function add_particle_list(element)
+{
+  let color_list = [color(255,128,49),color(255,100,50),color(200,100,0),color(255,100,0),color(155,55,0)]
+
+  for(let num_particles = 100; num_particles>0; num_particles--)
+  {
+    let x = (Math.random()*2 - 1)
+    let y = ((Math.random()>0.5?1:-1)*Math.sqrt(1-x*x) + Math.pow(x*x,0.3333))
+
+    particle_list.push({
+      'x': element['x'],
+      'y': element['y'],
+      'x_spd':element['x_spd']+x,
+      'y_spd':element['y_spd']+y,
+      'color':color_list[Math.floor(Math.random()*color_list.length)], 
+      'weight' : 1+Math.floor(Math.random()*4)
+    })
+  }
+
+  for(let num_particles = Math.floor(Math.random()*1000)+100; num_particles>0; num_particles--)
+  {
+    let x = (Math.random()*2 - 1)
+    let y = ((Math.random()>0.5?1:-1)*Math.sqrt(Math.random()-x*x) + Math.pow(x*x,0.3333))
+
+    particle_list.push({
+      'x': element['x'],
+      'y': element['y'],
+      'x_spd':element['x_spd']+x,
+      'y_spd':element['y_spd']+y,
+      'color':color_list[Math.floor(Math.random()*color_list.length)], 
+      'weight' : 1+Math.floor(Math.random()*4)
     })
   }
 }
@@ -61,8 +96,9 @@ function dacay_particles()
 {
   new_list = []
   particle_list.forEach(element => {
-    if(element['y']<600)
+    if(element['weight'] > 1)
     {
+      element['weight'] -= 0.05
       new_list.push(element)
     }   
   });
