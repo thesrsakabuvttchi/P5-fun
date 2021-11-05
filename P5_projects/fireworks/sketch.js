@@ -54,7 +54,7 @@ function heart_explosion(element)
     })
   }
 
-  for(let num_particles = Math.floor(Math.random()*200)+100; num_particles>0; num_particles--)
+  for(let num_particles = Math.floor(Math.random()*200)+10; num_particles>0; num_particles--)
   {
     let x = (Math.random()*2 - 1)
     let y = ((Math.random()>0.5?1:-1)*Math.sqrt(Math.random()-x*x) + Math.pow(x*x,0.3333))
