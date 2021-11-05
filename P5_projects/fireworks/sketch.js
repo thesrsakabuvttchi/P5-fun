@@ -77,7 +77,7 @@ function star_explosion(element)
 
   for(let num_particles = Math.floor(Math.random()*500)+50; num_particles>0; num_particles--)
   {
-    let velocity_vector = Math.random()*6
+    let velocity_vector = Math.random()*8
     let angle = Math.random()*Math.PI/64 - Math.PI/128 + 4*Math.floor(Math.random()*16)*(Math.PI/32)  
 
     particle_list.push({
