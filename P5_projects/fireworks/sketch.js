@@ -35,11 +35,11 @@ function circular_explosion(element)
   }
 }
 
-function add_particle_list(element)
+function heart_explosion(element)
 {
   let color_list = [color(255,128,49),color(255,100,50),color(200,100,0),color(255,100,0),color(155,55,0)]
 
-  for(let num_particles = 100; num_particles>0; num_particles--)
+  for(let num_particles = 50; num_particles>0; num_particles--)
   {
     let x = (Math.random()*2 - 1)
     let y = ((Math.random()>0.5?1:-1)*Math.sqrt(1-x*x) + Math.pow(x*x,0.3333))
@@ -68,6 +68,11 @@ function add_particle_list(element)
       'weight' : 1+Math.floor(Math.random()*4)
     })
   }
+}
+
+function add_particle_list(element)
+{
+  heart_explosion(element)
 }
 
 function add_point_at_random(chance = 0.01)
