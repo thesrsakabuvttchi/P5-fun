@@ -94,10 +94,7 @@ function star_explosion(element)
 function add_particle_list(element)
 {
   let rnd = Math.random()
-  if(rnd<0.5)
-    circular_explosion(element)
-  else
-    star_explosion(element)
+  heart_explosion(element)
 }
 
 function add_point_at_random(chance = 0.01)
